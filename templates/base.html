@@ -9,9 +9,10 @@
         {% if user.is_authenticated %}
             <a href="{% url 'profile' %}">Profile</a>
             <a href="{% url 'my_enrollments' %}">My Enrollments</a>
-            <a href="/admin/logout/">Logout</a>
+            <a href="{% url 'logout' %}">Logout</a>
         {% else %}
-            <a href="/admin/login/">Login</a>
+            <a href="{% url 'login' %}">Login</a>
+             <a href="{% url 'register' %}">Register</a>
         {% endif %}
     </nav>
     {% block content %}
