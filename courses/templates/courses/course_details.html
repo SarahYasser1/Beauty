@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ course.name }}</h1>
+<p>{{ course.description }}</p>
+<p>{{ course.price }}</p>
+
+<h2>Lessons</h2>
+{% for lesson in lessons %}
+    <p>{{ lesson.order }}. {{ lesson.title }}</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <a href="{% url 'enroll' course.id %}">Enroll</a>
+    <a href="{% url 'add_review' course.id %}">Add Review</a>
+{% endif %}
+{% endblock %}

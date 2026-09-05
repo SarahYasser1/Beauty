@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Spanish Platform{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'course_list' %}">Courses</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="{% url 'my_enrollments' %}">My Enrollments</a>
+            <a href="/admin/logout/">Logout</a>
+        {% else %}
+            <a href="/admin/login/">Login</a>
+        {% endif %}
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
